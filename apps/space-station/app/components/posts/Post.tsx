@@ -5,7 +5,7 @@ async function getPosts() {
   return await data.json();
 }
 
-const Count = AsyncComponent(async () => {
+const Post = AsyncComponent(async () => {
   const posts = await getPosts();
 
   return posts.map((post: any, index: number) => (
@@ -13,4 +13,4 @@ const Count = AsyncComponent(async () => {
   ));
 });
 
-export default Count;
+export default Post;

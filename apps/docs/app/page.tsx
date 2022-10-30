@@ -1,11 +1,11 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import { Button } from "space-ui";
+import { Button } from "space-ui/core";
 
 export default function Home() {
   return (
     <div className={styles.container}>
-      <Button />
+      <Button>Click me</Button>
       <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js 13!</a>
