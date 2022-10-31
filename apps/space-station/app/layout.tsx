@@ -1,8 +1,5 @@
-import { Suspense } from "react";
-import { ErrorBoundary } from "./components/ErrorBoundary";
-
-import Loading from "./loading";
 import "./styles/globals.css";
+import { ErrorBoundary } from "./components/ErrorBoundary";
 
 type Props = { children: React.ReactNode };
 
@@ -15,9 +12,7 @@ const RootLayout: React.FC<Props> = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
-        <ErrorBoundary>
-          <Suspense fallback={<Loading />}>{children}</Suspense>
-        </ErrorBoundary>
+        <ErrorBoundary>{children}</ErrorBoundary>
       </body>
     </html>
   );

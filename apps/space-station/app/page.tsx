@@ -6,6 +6,7 @@ const Home: React.FC = () => {
     <div className="px-10">
       <Button>Click Me</Button>
       <Post />
+      Arent u sure
     </div>
   );
 };
