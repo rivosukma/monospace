@@ -1,15 +1,15 @@
 import { cva, VariantProps } from "class-variance-authority";
 
-const main_styles = cva(" border-2 rounded-full animate-spin", {
+const main_styles = cva("rounded-full animate-spin", {
   variants: {
     variant: {
       primary: "border-white",
       secondary: "border-black dark:border-white",
     },
     size: {
-      sm: "w-4 h-4",
-      md: "w-8 h-8",
-      lg: "w-16 h-16",
+      sm: "w-4 h-4 border-2",
+      md: "w-5 h-5 border-2",
+      lg: "w-6 h-6 border-4",
     },
   },
   defaultVariants: {

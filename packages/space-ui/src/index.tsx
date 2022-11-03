@@ -1,2 +1,2 @@
-export * from "./core/Button";
-export * from "./core/Loader";
+export * from "./core/button/Button";
+export * from "./core/loader/Loader";

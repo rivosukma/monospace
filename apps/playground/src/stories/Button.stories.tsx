@@ -20,6 +20,9 @@ export default {
       options: ["start", "end"],
       control: { type: "radio" },
     },
+    fullWidth: {
+      control: { type: "boolean" },
+    },
   },
 } as ComponentMeta<typeof Button>;
 
@@ -33,6 +36,8 @@ Primary.args = {
   size: "sm",
   order: "end",
   loading: true,
+  fullWidth: true,
+  icon: <div>L</div>,
   children: "Button",
 };
 
