@@ -1,14 +1,16 @@
 import { cva, VariantProps } from "class-variance-authority";
 
-const styles = cva("border rounded", {
+const styles = cva("rounded", {
   variants: {
     variant: {
       primary: "bg-indigo-600 hover:bg-indigo-700 text-white",
-      secondary: "bg-transparent border-black",
+      secondary: "bg-transparent border border-black",
+      danger: "bg-red-600 hover:bg-red-700 text-white",
     },
     size: {
       sm: "text-sm px-2 py-1",
       md: "text-base px-4 py-2",
+      lg: "text-lg px-6 py-3",
     },
   },
   defaultVariants: {
