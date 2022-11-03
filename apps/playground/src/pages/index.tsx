@@ -1,14 +1,22 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Button, Loading } from "space-ui";
+import { useState } from "react";
+import { Button } from "space-ui";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  const [loading, setLoading] = useState(false);
   return (
     <div className={styles.container}>
-      <Button>
-        <Loading />
-        test
+      <Button
+        variant="secondary"
+        loading={loading}
+        onClick={() => setLoading(true)}
+      >
+        load
+      </Button>
+      <Button variant="primary" onClick={() => setLoading(false)}>
+        abort
       </Button>
       <Head>
         <title>Create Next App</title>
