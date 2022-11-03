@@ -7,6 +7,7 @@ const styles = cva("border rounded", {
       secondary: "bg-transparent border-black",
     },
     size: {
+      sm: "text-sm px-2 py-1",
       md: "text-base px-4 py-2",
     },
   },
@@ -16,9 +17,9 @@ const styles = cva("border rounded", {
   },
 });
 
-type Props = React.ButtonHTMLAttributes<HTMLButtonElement> &
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof styles>;
 
-export const Button: React.FC<Props> = ({ variant, size, ...props }) => {
+export const Button: React.FC<ButtonProps> = ({ variant, size, ...props }) => {
   return <button className={styles({ variant, size })} {...props} />;
 };
