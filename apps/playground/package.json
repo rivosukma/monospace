@@ -11,11 +11,11 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "eslint-config-custom": "*",
     "next": "13.0.1",
     "next-transpile-modules": "^10.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "eslint-config-custom": "*",
     "space-ui": "*"
   },
   "devDependencies": {
@@ -37,6 +37,7 @@
     "eslint": "8.26.0",
     "eslint-plugin-storybook": "^0.6.7",
     "postcss": "^8.4.18",
+    "storybook-tailwind-dark-mode": "^1.0.15",
     "tailwind-config": "*",
     "tailwindcss": "^3.2.1",
     "typescript": "4.8.4"

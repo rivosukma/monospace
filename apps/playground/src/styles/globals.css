@@ -28,3 +28,13 @@ a {
     background: black;
   }
 }
+
+html:not(.dark) > .sb-show-main {
+  /* replace color */
+  background: white !important;
+}
+
+.dark > .sb-show-main {
+  /* replace color */
+  background: #000 !important;
+}

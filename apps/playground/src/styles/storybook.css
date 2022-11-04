@@ -1,0 +1,19 @@
+html:not(.dark) > .sb-show-main {
+  /* replace color */
+  background: white !important;
+}
+
+.dark > .sb-show-main {
+  /* replace color */
+  background: black !important;
+}
+
+:not(.dark) .docs-story {
+  /* replace color */
+  background: white !important;
+}
+
+.dark .docs-story {
+  /* replace color */
+  background: black !important;
+}

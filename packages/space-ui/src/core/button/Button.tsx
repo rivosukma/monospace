@@ -1,15 +1,17 @@
-import { cva, VariantProps } from "class-variance-authority";
+import { cva, cx, VariantProps } from "class-variance-authority";
 import { Fragment } from "react";
 import { Loader } from "../loader/Loader";
 
 const main_styles = cva(
-  "flex justify-center items-center disabled:bg-opacity-75 font-bold",
+  "flex justify-center items-center font-medium disabled:bg-opacity-75 disabled:cursor-not-allowed",
   {
     variants: {
       variant: {
         primary: "bg-blue-600 text-white hover:bg-blue-700",
-        secondary:
-          "bg-transparent border border-black dark:border-white hover:bg-white hover:bg-opacity-10",
+        secondary: cx(
+          "bg-transparent border hover:bg-white hover:bg-opacity-10 hover:border-black",
+          "dark:border-gray-700 dark:text-gray-400  dark:hover:border-white dark:hover:text-white"
+        ),
         danger: "bg-red-500 hover:bg-red-600 text-white",
       },
       size: {
@@ -27,13 +29,13 @@ const main_styles = cva(
     },
     defaultVariants: {
       variant: "primary",
-      size: "md",
+      size: "sm",
       order: "start",
     },
   }
 );
 
-const icon_styles = cva("", {
+const icon_styles = cva("flex items-center", {
   variants: {
     order: {
       start: "-ml-1",
@@ -45,12 +47,11 @@ const icon_styles = cva("", {
       lg: "px-3",
     },
   },
-  defaultVariants: { order: "start" },
+  defaultVariants: { order: "start", size: "sm" },
 });
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof main_styles> & {
-    icon?: React.ReactNode;
     loading?: boolean;
   };
 
@@ -60,7 +61,6 @@ export const Button: React.FC<ButtonProps> = ({
   size,
   children,
   className,
-  icon,
   fullWidth = false,
   disabled = false,
   loading = false,
@@ -78,16 +78,12 @@ export const Button: React.FC<ButtonProps> = ({
       disabled={disabled || loading}
       {...props}
     >
-      {(loading || icon) && (
+      {loading && (
         <div className={icon_styles({ order, size })}>
-          {loading ? (
-            <Loader
-              size={size}
-              variant={variant === "secondary" ? "secondary" : "primary"}
-            />
-          ) : (
-            <Fragment>{icon}</Fragment>
-          )}
+          <Loader
+            size={size}
+            variant={variant === "secondary" ? "secondary" : "primary"}
+          />
         </div>
       )}
       {children}

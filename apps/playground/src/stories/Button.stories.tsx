@@ -37,7 +37,6 @@ Primary.args = {
   order: "end",
   loading: true,
   fullWidth: true,
-  icon: <div>L</div>,
   children: "Button",
 };
 

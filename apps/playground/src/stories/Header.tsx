@@ -44,24 +44,20 @@ export const Header = ({
         </svg>
         <h1>Acme</h1>
       </div>
-      <div>
+      <div className="flex">
         {user ? (
           <>
             <span className="welcome">
               Welcome, <b>{user.name}</b>!
             </span>
-            <Button size="sm" onClick={onLogout}>
-              Log Out
-            </Button>
+            <Button onClick={onLogout}>Log Out</Button>
           </>
         ) : (
           <>
-            <Button size="sm" onClick={onLogin}>
-              Log In
-            </Button>
-            <Button size="sm" onClick={onCreateAccount}>
+            <Button variant="secondary" onClick={onCreateAccount}>
               Sign Up
             </Button>
+            <Button onClick={onLogin}>Log In</Button>
           </>
         )}
       </div>
