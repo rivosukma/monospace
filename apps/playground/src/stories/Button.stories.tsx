@@ -9,7 +9,7 @@ export default {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     variant: {
-      options: ["primary", "secondary", "danger"],
+      options: ["primary", "secondary", "danger", "text", "ghost"],
       control: { type: "select" },
     },
     size: {
@@ -35,8 +35,8 @@ Primary.args = {
   variant: "primary",
   size: "sm",
   order: "end",
-  loading: true,
-  fullWidth: true,
+  loading: false,
+  fullWidth: false,
   children: "Button",
 };
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button } from "space-ui";
 
 import { Header } from "./Header";
 import "./page.css";
@@ -7,7 +8,7 @@ type User = {
   name: string;
 };
 
-export const Page: React.VFC = () => {
+export const Page: React.FC = () => {
   const [user, setUser] = useState<User>();
 
   return (
@@ -19,7 +20,7 @@ export const Page: React.VFC = () => {
         onCreateAccount={() => setUser({ name: "Jane Doe" })}
       />
 
-      <section className="dark:!text-white">
+      <section className="tracking-wider mx-[80px] my-[32px] dark:!text-white dark:bg-zinc-900 p-10 border border-[rgba(0, 0, 0, 0.1)] dark:border-zinc-700 rounded-xl dark:bg-opacity-70 dark:backdrop-blur">
         <h2>Pages in Storybook</h2>
         <p>
           We recommend building UIs with a{" "}
@@ -84,6 +85,9 @@ export const Page: React.VFC = () => {
             </g>
           </svg>
           Viewports addon in the toolbar
+        </div>
+        <div className="flex">
+          <Button fullWidth>View Detail</Button>
         </div>
       </section>
     </article>
