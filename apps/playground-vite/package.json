@@ -1,0 +1,34 @@
+{
+  "name": "playground-vite",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "vite-dev": "start-storybook -p 6006",
+    "vite-build": "build-storybook --docs",
+    "vite-preview-storybook": "serve storybook-static",
+    "vite-clean": "rm -rf .turbo && rm -rf node_modules"
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "space-ui": "*"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.4.18",
+    "@storybook/addon-docs": "^6.4.22",
+    "@storybook/addon-essentials": "^6.4.18",
+    "@storybook/addon-links": "^6.4.18",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/builder-vite": "^0.1.33",
+    "@storybook/react": "^6.4.18",
+    "@vitejs/plugin-react": "^1.3.2",
+    "autoprefixer": "^10.4.13",
+    "eslint-config-custom": "*",
+    "postcss": "^8.4.18",
+    "serve": "^13.0.2",
+    "tailwind-config": "*",
+    "tailwindcss": "^3.2.2",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9"
+  }
+}

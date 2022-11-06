@@ -5,6 +5,9 @@ const main_styles = cva("rounded-full animate-spin", {
     variant: {
       primary: "border-white",
       secondary: "border-black dark:border-white",
+      danger: "border-white",
+      ghost: "border-black dark:border-white",
+      text: "border-black dark:border-white",
     },
     size: {
       sm: "w-4 h-4 border-2",

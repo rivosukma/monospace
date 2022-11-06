@@ -1,4 +1,4 @@
-import { cva, VariantProps } from "class-variance-authority";
+import { cva, cx, VariantProps } from "class-variance-authority";
 import { forwardRef, Fragment } from "react";
 import { Loader } from "../loader/Loader";
 
@@ -28,13 +28,9 @@ const main_styles = cva(
         ],
       },
       size: {
-        sm: "text-sm px-4 py-1.5 rounded-md",
+        sm: "text-sm px-4 py-1.5 rounded-sm",
         md: "text-base px-6 py-2.5 rounded-md",
         lg: "text-lg px-8 py-3.5 rounded-lg",
-      },
-      order: {
-        start: "flex-row",
-        end: "flex-row-reverse",
       },
       fullWidth: {
         true: "w-full",
@@ -43,28 +39,31 @@ const main_styles = cva(
     defaultVariants: {
       variant: "primary",
       size: "sm",
-      order: "start",
     },
   }
 );
 
-const icon_styles = cva("flex items-center", {
-  variants: {
-    order: {
-      start: "-ml-1",
-      end: "-mr-1",
-    },
-    size: {
-      sm: "px-1",
-      md: "px-2",
-      lg: "px-3",
-    },
-  },
-  defaultVariants: { order: "start", size: "sm" },
-});
+export const ICON_SIZE_CLASSES = {
+  sm: "h-4 w-4",
+  md: "h-5 w-5",
+  lg: "h-5 w-5",
+};
+
+export const ICON_START_CLASSES = {
+  sm: "-ml-1 mr-1",
+  md: "-ml-2 mr-2",
+  lg: "-ml-3 mr-3",
+};
+
+export const ICON_END_CLASSES = {
+  sm: "-mr-1 ml-1",
+  md: "-mr-2 ml-2",
+  lg: "-mr-3 ml-3",
+};
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof main_styles> & {
+    order?: "start" | "end";
     icon?: React.ReactElement;
     loading?: boolean;
   };
@@ -77,22 +76,47 @@ export type AnchorProps = React.DetailedHTMLProps<
 
 const ButtonContent: React.FC<ButtonProps> = ({
   variant,
-  order,
   size,
-  children,
+  order,
+  icon = null,
   loading = false,
+  children,
 }) => {
+  const icon_size = size ?? "sm";
+
   return (
     <Fragment>
       {loading && (
-        <span className={icon_styles({ order, size })}>
-          <Loader
-            size={size}
-            variant={variant === "secondary" ? "secondary" : "primary"}
-          />
+        <span
+          className={cx(
+            ICON_SIZE_CLASSES[icon_size],
+            ICON_START_CLASSES[icon_size]
+          )}
+        >
+          <Loader size={size} variant={variant} />
+        </span>
+      )}
+      {icon && !loading && order === "start" && (
+        <span
+          className={cx(
+            ICON_SIZE_CLASSES[icon_size],
+            ICON_START_CLASSES[icon_size]
+          )}
+        >
+          {icon}
         </span>
       )}
       <span>{children}</span>
+      {icon && !loading && order === "end" && (
+        <span
+          className={cx(
+            ICON_SIZE_CLASSES[icon_size],
+            ICON_END_CLASSES[icon_size]
+          )}
+        >
+          {icon}
+        </span>
+      )}
     </Fragment>
   );
 };
@@ -101,10 +125,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
     const {
       variant,
-      order,
       size,
       children,
       className,
+      icon,
       fullWidth = false,
       disabled = false,
       loading = false,
@@ -117,7 +141,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         className={main_styles({
           variant,
           size,
-          order,
           fullWidth,
           class: className,
         })}
@@ -139,10 +162,10 @@ export const ButtonLink = forwardRef<
 >((props, ref) => {
   const {
     variant,
-    order,
     size,
     children,
     className,
+    icon,
     fullWidth = false,
     disabled = false,
     loading = false,
@@ -155,7 +178,6 @@ export const ButtonLink = forwardRef<
       className={main_styles({
         variant,
         size,
-        order,
         fullWidth,
         class: className,
       })}

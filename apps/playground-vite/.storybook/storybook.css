@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  font-family: Inter, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+html:not(.dark) > .sb-show-main {
+  /* replace color */
+  background: white !important;
+}
+
+.dark > .sb-show-main {
+  /* replace color */
+  background: black !important;
+}
+
+:not(.dark) .docs-story {
+  /* replace color */
+  background: white !important;
+}
+
+.dark .docs-story {
+  /* replace color */
+  background: black !important;
+}
