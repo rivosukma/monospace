@@ -19,14 +19,9 @@ export const Header = ({
   onCreateAccount,
 }: HeaderProps) => (
   <header className="sticky top-0 z-50">
-    <div className="wrapper border-b border-[rgba(0, 0, 0, 0.1)] dark:border-zinc-700 dark:bg-zinc-900 dark:bg-opacity-70 bg-white bg-opacity-70 backdrop-blur">
+    <div className="wrapper border-[rgba(0, 0, 0, 0.1)] dark:border-zinc-700 dark:bg-zinc-900 dark:bg-opacity-70 bg-white bg-opacity-70 backdrop-blur">
       <div className="flex items-center">
-        <svg
-          width="28"
-          height="28"
-          viewBox="0 0 32 32"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
           <g fill="none" fillRule="evenodd">
             <path
               d="M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z"
@@ -53,22 +48,18 @@ export const Header = ({
             <span className="welcome">
               Welcome, <b>{user.name}</b>!
             </span>
-            <Button className="rounded-md" onClick={onLogout}>
-              Log Out
-            </Button>
+            <Button onClick={onLogout}>Log Out</Button>
           </>
         ) : (
           <>
             <ButtonLink
-              className="mr-2 rounded-md"
+              className="mr-2"
               variant="ghost"
               onClick={onCreateAccount}
             >
               Sign Up
             </ButtonLink>
-            <ButtonLink className="rounded-md" onClick={onLogin}>
-              Log In
-            </ButtonLink>
+            <ButtonLink onClick={onLogin}>Log In</ButtonLink>
           </>
         )}
       </div>

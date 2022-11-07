@@ -77,7 +77,7 @@ export type AnchorProps = React.DetailedHTMLProps<
 const ButtonContent: React.FC<ButtonProps> = ({
   variant,
   size,
-  order,
+  order = "start",
   icon = null,
   loading = false,
   children,
